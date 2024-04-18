@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Play Tic Tac</title>
+</head>
+
+<body class="bg-dark">
+
+
+    <div class="container mt-5 pt-5 ">
+        <h3 class="text-center text-white">PLAY TIC TAC</h3>
+        <div class="col-md-6 mx-auto mt-4">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-light">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label class="text-white" for="username">Enter Username</label>
+                        <input type="text" name="username" id="username" class="form-control" aria-label="Username" placeholder="Enter your username" required>
+                    </div>
+
+                    <div class="col-md-12 form-group">
+                        <label class="text-white" for="option">Choose Option</label>
+
+                        <select class="form-control" name="option" id="option" aria-label="Choose Option" required>
+                            <option disabled selected>Choose</option>
+                            <option value="1">Have room Code</option>
+                            <option value="2">Create room Code</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-12 form-group">
+                        <label class="text-white" for="room_code">Enter Room Code</label>
+                        <input type="text" name="room_code" id="room_code" class="form-control" aria-label="Room Code" placeholder="Enter room code">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-light">Start Game</button>
+
+            </form>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
